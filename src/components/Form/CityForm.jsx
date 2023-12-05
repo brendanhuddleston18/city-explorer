@@ -1,6 +1,7 @@
 import {useState} from "react";
 import Form from "react-bootstrap/Form";
 import Button from 'react-bootstrap/Button';
+import styles from './CityForm.module.css';
 
 function CityForm(props) {
 
@@ -19,6 +20,7 @@ function CityForm(props) {
   return (
     <>
       <Form.Control
+      className={styles.Form}
         type="location"
         id="inputCity"
         aria-describedby="location"
@@ -26,9 +28,9 @@ function CityForm(props) {
         onChange={handleCityChange}
       />
       
-      <Button variant="primary" onClick={submitCity}>Explore!</Button>{' '}
-      <h2>{props.selectedCity}</h2>
-      <h3>Lat: {props.latitude} Long: {props.longitude}</h3>
+      <Button className={styles.Button}variant="primary" onClick={submitCity}>Explore!</Button>{' '}
+      {/* <h2>{props.selectedCity}</h2> */}
+      
     </>
   );
 }
