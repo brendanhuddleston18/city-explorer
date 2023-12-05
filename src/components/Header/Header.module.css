@@ -6,7 +6,8 @@
 
 .Container {
   display: block;
-  background-color: rebeccapurple;
+  
+  background-position: center center;
   padding: 24px;
   margin: 24px;
 }

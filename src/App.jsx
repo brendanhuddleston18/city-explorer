@@ -32,8 +32,8 @@ function App() {
 
   return (
     <>
-      <Header />
       <div className="body">
+      <Header />
         <CityForm
           latitude={latitude}
           longitude={longitude}

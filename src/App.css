@@ -1,8 +1,10 @@
 .body {
+  background-image: url("https://media.istockphoto.com/id/512321025/photo/industrial-background.jpg?s=2048x2048&w=is&k=20&c=LV_6YktSt4c4ZB2bYS82Dn4d_MzWItN9y89qsrmPM68=");
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 24px;
+  height: 100%;
   /* width: 1vw; */
 }
