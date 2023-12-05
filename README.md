@@ -38,3 +38,7 @@ Start time: 5:15pm CST
 Finish time: 9:09pm CST
 
 Actual time needed to complete: 4hrs
+
+## Light House report
+
+![lighthouse](./src/assets/images/Screenshot%202023-12-04%20211727.png)
