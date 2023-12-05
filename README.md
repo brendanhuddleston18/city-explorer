@@ -31,9 +31,9 @@
 
 Name of feature: Getting Started Lab 06, Adding map location and map API
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 5hrs
 
-Start time: _____
+Start time: 5:15pm CST
 
 Finish time: _____
 
