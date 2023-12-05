@@ -3,6 +3,7 @@ import axios from "axios";
 import Header from "./components/Header/Header.jsx";
 import CityForm from "./components/Form/CityForm.jsx";
 import Map from "./components/Map/Map.jsx";
+import Error from "./components/Error/Error.jsx";
 import "./App.css";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -11,6 +12,8 @@ function App() {
   const [selectedCity, setSelectedCity] = useState("");
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
+  const [show, setShow] = useState(false);
+  const [error, setError] = useState('');
 
   // console.log(selectedCity);
   function changeCity(userCity) {
@@ -26,7 +29,10 @@ function App() {
       setLatitude(response.data[0].lat);
       setLongitude(response.data[0].lon);
     } catch (error) {
-      console.error(error.message);
+      setShow(true);
+      let errorMessage = error.message;
+      setError(errorMessage)
+      console.error(errorMessage);
     }
   }
 
@@ -45,6 +51,7 @@ function App() {
           latitude={latitude}
           longitude={longitude}
         />
+        <Error show={show} errorMessage={error}/>
       </div>
     </>
   );
