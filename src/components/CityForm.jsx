@@ -27,6 +27,7 @@ function CityForm(props) {
       
       <Button variant="primary" onClick={submitCity}>Explore!</Button>{' '}
       <h2>{props.selectedCity}</h2>
+      <h3>Lat: {props.latitude} Long: {props.longitude}</h3>
     </>
   );
 }
