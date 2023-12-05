@@ -1,0 +1,15 @@
+.Header {
+  font-size: 45px;
+  color: #e0e0e0;
+  text-shadow: 0px 3px 3px 3px #111;
+  text-align: center;
+  /* background-color: rebeccapurple; */
+}
+
+.Container {
+  display: block;
+  
+  background-position: center center;
+  padding: 24px;
+  margin: 24px;
+}

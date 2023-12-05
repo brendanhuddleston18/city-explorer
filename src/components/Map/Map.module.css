@@ -1,0 +1,13 @@
+.Map {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Card {
+  /* border: 2px solid black; */
+  border-radius: 5px;
+  box-shadow: 0px 3px 3px 3px #a3a3a3;
+  text-align: center;
+  background-color: white;
+}

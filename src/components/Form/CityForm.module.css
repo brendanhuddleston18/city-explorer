@@ -1,0 +1,11 @@
+.Form {
+  
+}
+
+.Button {
+  width: 11rem;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
