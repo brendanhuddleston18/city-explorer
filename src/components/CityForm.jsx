@@ -12,7 +12,7 @@ function CityForm(props) {
   }
 
   function submitCity(e){
-    e.prevent.default();
+    // e.prevent.default();
     props.changeCity(typedCity);
   }
 
