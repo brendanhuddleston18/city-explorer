@@ -11,7 +11,8 @@ function CityForm(props) {
     console.log(typedCity);
   }
 
-  function submitCity(){
+  function submitCity(e){
+    e.prevent.default();
     props.changeCity(typedCity);
   }
 
