@@ -1,37 +1,41 @@
-import {useState} from "react";
+import { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
-import Button from 'react-bootstrap/Button';
-import styles from './CityForm.module.css';
+import Button from "react-bootstrap/Button";
+import styles from "./CityForm.module.css";
+
 
 function CityForm(props) {
+  const [typedCity, setTypedCity] = useState("");
 
-  const[typedCity, setTypedCity] = useState('')
-
-  function handleCityChange(e){
+  function handleCityChange(e) {
     setTypedCity(e.target.value);
     console.log(typedCity);
   }
 
-  function submitCity(e){
+  function submitCity(e) {
     // e.prevent.default();
     props.changeCity(typedCity);
-    props.grabWeatherData;
+   
+
+    // props.grabWeatherData(props.latitude, props.longitude);
+    // console.log(props.latitude, props.longitude);
   }
+
 
   return (
     <>
       <Form.Control
-      className={styles.Form}
+        className={styles.Form}
         type="location"
         id="inputCity"
         aria-describedby="location"
         placeholder="Enter a City"
         onChange={handleCityChange}
       />
-      
-      <Button className={styles.Button}variant="primary" onClick={submitCity}>Explore!</Button>{' '}
+      <Button className={styles.Button} variant="primary" onClick={submitCity}>
+        Explore!
+      </Button>{" "}
       {/* <h2>{props.selectedCity}</h2> */}
-      
     </>
   );
 }

@@ -21,31 +21,37 @@ function App() {
     grabCityData(userCity);
   }
 
-  async function grabCityData(cityName) {
+   async function grabCityData(cityName) {
     let url = `https://us1.locationiq.com/v1/search?key=${API_KEY}&q=${cityName}&format=json`;
     try {
       let response = await axios.get(url);
       // console.log(response.data[0].display_name);
+      console.log(response.data);
       setSelectedCity(response.data[0].display_name);
       setLatitude(response.data[0].lat);
       setLongitude(response.data[0].lon);
+      grabWeatherData(response.data[0].lat,response.data[0].lon);
     } catch (error) {
       setShow(true);
       let errorMessage = error.message;
       setError(errorMessage)
       console.error(errorMessage);
     }
+    // grabWeatherData(latitude, longitude)
   }
 
-  async function grabWeatherData() {
+  async function grabWeatherData(latitude, longitude) {
     try {
-      let response = await axios.get('http://localhost:3000' , {params: {'latitude': latitude, 'longitude': longitude}});
+      console.log(latitude, longitude);
+      let response = await axios.get('http://localhost:3000/' , {params: {"latitude": latitude, "longitude": longitude}});
       console.log(response)
     } catch {
       console.log("Didn't Work")
     }
   }
-  
+
+
+
   return (
     <>
       <div className="body">
