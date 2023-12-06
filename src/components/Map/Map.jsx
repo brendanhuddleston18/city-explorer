@@ -18,9 +18,7 @@ function Map(props) {
           <Card.Body>
             <Card.Title style={{fontWeight: "bold"}}>{props.selectedCity}</Card.Title>
             <Card.Text>
-              <p>
                 LAT: {props.latitude} LONG: {props.longitude}
-              </p>
             </Card.Text>
           </Card.Body>
         </Card>
