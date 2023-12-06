@@ -3,10 +3,12 @@ import axios from "axios";
 import Header from "./components/Header/Header.jsx";
 import CityForm from "./components/Form/CityForm.jsx";
 import Map from "./components/Map/Map.jsx";
+import Weather from "./components/Weather/Weather.jsx";
 import Error from "./components/Error/Error.jsx";
 import "./App.css";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
+const SERVER = import.meta.env.VITE_SERVER_SIDE;
 
 function App() {
   const [selectedCity, setSelectedCity] = useState("");
@@ -26,7 +28,7 @@ function App() {
     try {
       let response = await axios.get(url);
       // console.log(response.data[0].display_name);
-      console.log(response.data);
+      // console.log(response.data);
       setSelectedCity(response.data[0].display_name);
       setLatitude(response.data[0].lat);
       setLongitude(response.data[0].lon);
@@ -43,8 +45,11 @@ function App() {
   async function grabWeatherData(latitude, longitude) {
     try {
       console.log(latitude, longitude);
-      let response = await axios.get('http://localhost:3000/' , {params: {"latitude": latitude, "longitude": longitude}});
-      console.log(response)
+      let response = await axios.get( SERVER, {params: {"latitude": latitude, "longitude": longitude}});
+      const {CityName, forecast} = response.data;
+      console.log("CityName:", CityName);
+      console.log("forecast:", forecast);
+      setWeather(forecast);
     } catch {
       console.log("Didn't Work")
     }
@@ -68,6 +73,7 @@ function App() {
           latitude={latitude}
           longitude={longitude}
         />
+        <Weather weather={weather} selectedCity={selectedCity}/>
         <Error show={show} errorMessage={error}/>
       </div>
     </>
