@@ -14,6 +14,7 @@ function App() {
   const [longitude, setLongitude] = useState(null);
   const [show, setShow] = useState(false);
   const [error, setError] = useState('');
+  const [weather, setWeather] = useState([]);
 
   // console.log(selectedCity);
   function changeCity(userCity) {
@@ -36,6 +37,15 @@ function App() {
     }
   }
 
+  async function grabWeatherData() {
+    try {
+      let response = await axios.get('http://localhost:3000' , {params: {'latitude': latitude, 'longitude': longitude}});
+      console.log(response)
+    } catch {
+      console.log("Didn't Work")
+    }
+  }
+  
   return (
     <>
       <div className="body">
@@ -45,6 +55,7 @@ function App() {
           longitude={longitude}
           selectedCity={selectedCity}
           changeCity={changeCity}
+          grabWeatherData={grabWeatherData}
         />
         <Map
           selectedCity={selectedCity}
