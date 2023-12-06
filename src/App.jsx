@@ -51,7 +51,7 @@ function App() {
       console.log("forecast:", forecast);
       setWeather(forecast);
     } catch {
-      console.log("Didn't Work")
+      console.log(error.message);
     }
   }
 
