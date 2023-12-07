@@ -92,7 +92,7 @@ function App() {
           longitude={longitude}
         />
         <div className="weatherMovies">
-        {weather.map((value,idx) => (<Weather key={idx} weather={value} selectedCity={selectedCity}/>))}
+        {weather.map((value,idx) => (<Weather style={{padding: "12px"}}key={idx} weather={value} selectedCity={selectedCity}/>))}
         {movies.map((value, idx) =>(<Movies key={idx} movies ={value} />) )}
         </div>
         

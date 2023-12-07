@@ -10,7 +10,7 @@ function Movies(props) {
     <Card style={{ width: '18rem' }}>
 
     <Card.Body className={styles.movieCard}>
-      <Card.Title>{props.movies.name}</Card.Title>
+      <Card.Title style={{fontWeight: 'bold'}}>{props.movies.name}</Card.Title>
         <ul>
           <li>Description: {props.movies.description}</li>
           <li>Average Votes: {props.movies.voteAvg}</li>

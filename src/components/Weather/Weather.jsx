@@ -12,8 +12,8 @@ function Weather(props) {
         <Card.Body>
           <ul>
             <li>Date: {props.weather.date}</li>
-            <li>High: {props.weather.highTemp}</li>
-            <li>Low: {props.weather.lowTemp}</li>
+            <li>High: {props.weather.highTemp}F</li>
+            <li>Low: {props.weather.lowTemp}F</li>
           </ul>
         </Card.Body>
       </Card>
