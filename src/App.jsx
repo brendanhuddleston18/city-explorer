@@ -33,6 +33,7 @@ function App() {
       setLatitude(response.data[0].lat);
       setLongitude(response.data[0].lon);
       grabWeatherData(response.data[0].lat,response.data[0].lon);
+      console.log(response.data)
     } catch (error) {
       setShow(true);
       let errorMessage = error.message;
@@ -41,15 +42,16 @@ function App() {
     }
     // grabWeatherData(latitude, longitude)
   }
-
+  
+  // let forecastArray = []
   async function grabWeatherData(latitude, longitude) {
     try {
       console.log(latitude, longitude);
       let response = await axios.get( SERVER, {params: {"latitude": latitude, "longitude": longitude}});
-      const {CityName, forecast} = response.data;
-      console.log("CityName:", CityName);
+      const forecast = response.data;
+      setWeather(response.data.Forecast);
+      console.log(response.data.Forecast);
       console.log("forecast:", forecast);
-      setWeather(forecast);
     } catch {
       console.log(error.message);
     }
@@ -73,7 +75,8 @@ function App() {
           latitude={latitude}
           longitude={longitude}
         />
-        <Weather weather={weather} selectedCity={selectedCity}/>
+        {weather.map((value,idx) => (<Weather weather={value} selectedCity={selectedCity}/>))}
+        
         <Error show={show} errorMessage={error}/>
       </div>
     </>
