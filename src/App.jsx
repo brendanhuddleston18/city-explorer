@@ -5,10 +5,12 @@ import CityForm from "./components/Form/CityForm.jsx";
 import Map from "./components/Map/Map.jsx";
 import Weather from "./components/Weather/Weather.jsx";
 import Error from "./components/Error/Error.jsx";
+import Movies from './components/Movies/Movies.jsx';
 import "./App.css";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 const SERVER = import.meta.env.VITE_SERVER_SIDE;
+const SERVER_MOVIES = import.meta.env.VITE_SERVER_MOVIES;
 
 function App() {
   const [selectedCity, setSelectedCity] = useState("");
@@ -17,6 +19,7 @@ function App() {
   const [show, setShow] = useState(false);
   const [error, setError] = useState('');
   const [weather, setWeather] = useState([]);
+  const [movies, setMovies] = useState([]);
 
   // console.log(selectedCity);
   function changeCity(userCity) {
@@ -33,6 +36,8 @@ function App() {
       setLatitude(response.data[0].lat);
       setLongitude(response.data[0].lon);
       grabWeatherData(response.data[0].lat,response.data[0].lon);
+      let movieCity = (response.data[0].display_name.split(' '));
+      grabMovieData(movieCity[0].slice(0, -1));
       console.log(response.data)
     } catch (error) {
       setShow(true);
@@ -57,6 +62,17 @@ function App() {
     }
   }
 
+  async function grabMovieData(cityName) {
+    try {
+     let response = await axios.get(SERVER_MOVIES, {params: {"city": cityName}});
+      setMovies(response.data);
+      console.log(response.data);
+    
+    } catch {
+      console.log(error.message)
+    }
+    }
+
 
 
   return (
@@ -75,7 +91,10 @@ function App() {
           latitude={latitude}
           longitude={longitude}
         />
-        {weather.map((value,idx) => (<Weather weather={value} selectedCity={selectedCity}/>))}
+        <div className="weatherMovies">
+        {weather.map((value,idx) => (<Weather key={idx} weather={value} selectedCity={selectedCity}/>))}
+        {movies.map((value, idx) =>(<Movies key={idx} movies ={value} />) )}
+        </div>
         
         <Error show={show} errorMessage={error}/>
       </div>
