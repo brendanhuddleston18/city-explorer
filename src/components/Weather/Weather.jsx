@@ -11,7 +11,7 @@ function Weather(props) {
       <Card className={styles.Card} style={{ width: "18rem" }}>
         <Card.Body>
           <ul>
-            <li>Date: {props.weather.date}</li>
+            <li style={{fontWeight: 'bold', listStyle: 'none'}}>Date: {props.weather.date}</li>
             <li>High: {props.weather.highTemp}F</li>
             <li>Low: {props.weather.lowTemp}F</li>
           </ul>

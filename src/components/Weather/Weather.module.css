@@ -1,4 +1,8 @@
 .Card {
+  font-family: sans-serif;
   background: white;
+  border-radius: 5px;
   box-shadow: 0px 3px 3px 3px #757575;
+  height: 100%;
+  width: 100%;
 }
