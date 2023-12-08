@@ -1,6 +1,4 @@
-import React from "react";
-import { When } from "react-if";
-import Button from "react-bootstrap/Button";
+import React from "react";;
 import Card from "react-bootstrap/Card";
 import styles from './Movie.module.css';
 
