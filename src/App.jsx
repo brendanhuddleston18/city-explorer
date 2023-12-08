@@ -94,11 +94,11 @@ function App() {
         />
           <h2 className="forecastHeading">Your 7 Day Forecast</h2>
         <div className="weatherSection">
-        {weather.length > 0 && weather.map((value,idx) => (<Weather style={{display: "inline"}}key={idx} weather={value} selectedCity={selectedCity}/>))}
+        {weather.map((value,idx) => (<Weather style={{display: "inline"}}key={idx} weather={value} selectedCity={selectedCity}/>))}
         </div>
         <h2 className="movieHeading" style={{display: `${show}`}}>Your Top 20 Movies</h2>
         <div className="movieSection" >
-        {movies.length > 0 && movies.map((value, idx) =>(<Movies key={idx} movies ={value} />) )}
+        {movies.map((value, idx) =>(<Movies key={idx} movies ={value} />) )}
 
         </div>
         
