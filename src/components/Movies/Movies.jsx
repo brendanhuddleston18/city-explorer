@@ -2,22 +2,20 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import styles from './Movies.module.css';
+import Movie from './Movie.jsx';
 
 
 function Movies(props) {
 
   return (
-    <Card style={{ width: '18rem' }}>
 
-    <Card.Body className={styles.movieCard}>
-      <Card.Title style={{fontWeight: 'bold'}}>{props.movies.name}</Card.Title>
-        <ul>
-          <li>Description: {props.movies.description}</li>
-          <li>Average Votes: {props.movies.voteAvg}</li>
-        </ul>
-    </Card.Body>
-  </Card>
-  )
-}
+    props.movies.map((value, idx) => {
+      return (
+        <Movie className={styles.movieCard} key={idx} movies={value} />
+      )
+      
+    })
+    )}
+    
 
 export default Movies;
