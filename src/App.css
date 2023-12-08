@@ -39,6 +39,7 @@
 .weatherSection {
   display: flex;
   gap: 5px;
+  width: 80%;
 }
 
 .movieSection {
