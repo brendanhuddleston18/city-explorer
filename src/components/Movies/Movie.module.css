@@ -1,0 +1,7 @@
+.movieCard{
+  background: white;
+  padding: 8px;
+  border-radius: 8px;
+  height: 90%;
+  /* height: 100px; */
+}
