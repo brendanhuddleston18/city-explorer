@@ -48,6 +48,7 @@ function App() {
     // grabWeatherData(latitude, longitude)
   }
   
+  console.log(weather);
   // let forecastArray = []
   async function grabWeatherData(latitude, longitude) {
     try {
