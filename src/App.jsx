@@ -38,7 +38,7 @@ function App() {
       grabWeatherData(response.data[0].lat,response.data[0].lon);
       let movieCity = (response.data[0].display_name.split(' '));
       grabMovieData(movieCity[0].slice(0, -1));
-      console.log(response.data)
+      // console.log(response.data)
     } catch (error) {
       setShow(true);
       let errorMessage = error.message;
